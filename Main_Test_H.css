@@ -1,0 +1,906 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap');
+/*Main variables */
+:root {
+  --question_font_size: 25px;
+  --main_font_family: 'Inter', sans-serif;
+  --main_font_size: 20px;
+  --main_text_color: #093A4E;
+  --main_question_instruction_font_size: 20px;
+  
+  --main_font_weight: normal;
+  --main_logo_alignment: start;
+  --main_text_color: #093A4E;
+  --page_background_color: #C1F5E9;
+  --page_background_image: unset;
+  --page_content_background_color: #FFFFFF;
+
+
+  --question_row_border_color: #E1E8EB;
+  --question_row_background_color: #FFFFFF;
+  --question_row_alt_background_color: #FFFFFF;
+  --question_selected_background_color: #C1F5E9;
+
+  --question_font_weight: bold;
+  --progressbar_background_color: #98DACB;
+  --progressbar_foreground_color: #093A4E;
+  --button_background_color: #093A4E;
+  --button_border_color: #093A4E;
+  --button_text_color: #FFFFFF;
+  --button_border_radius: 6px;
+  --button_border_width: 2px;
+  --button_min-width: 100px;
+  --button_height: 44px;
+  --button_font_size: 16px;
+  --input_field_border_color: #C0CED3;
+  --input_radio_checkbox_size: 20px;
+  --input_main_color: #093A4E;
+  --interactive_font_size: 16px;
+  --interactive_font_weight: normal;
+  --interactive_border: 2px solid #093A4E;
+  --interactive_border_hover: 2px solid #124E67;
+  --interactive_border_radius: 6px;
+  --interactive_margin: 8px;
+  --interactive_padding: 12px;
+  --interactive_text_align: center;
+  --interactive_vertical_align: middle;
+  --interactive_text_color: #FFFFFF;
+  --interactive_background_color: #093A4E;
+  --interactive_checked_background_color: #C1F5E9;
+  --interactive_background_color_hover: #124E67;
+  --interactive_selected_background_color_hover: #dddddd;
+  --special_border: 2px solid #093A4E;
+  --special_text_color: #FFFFFF;
+  --special_background_color: #093A4E;
+}
+
+ body {
+     background: var(--page_background_color);
+     background-image: var(--page_background_image);
+     font-family: var(--main_font_family);
+     color: var(--main_text_color);
+     font-weight: var(--main_font_weight);
+     background-repeat: no-repeat;
+     background-size: cover;
+     overflow-y: auto;
+     -moz-osx-font-smoothing: grayscale;
+     -webkit-font-smoothing: antialiased;
+     margin: 0;
+}
+.cDo{
+	font-size: var(--main_question_instruction_font_size);
+	font-style: italic;
+}
+.cRowText{
+	font-size: var(--main_font_size);
+}
+
+/* Define standard variables */
+ strong {
+     font-weight: bold;
+}
+ label {
+     cursor: pointer;
+}
+ .textleft {
+     text-align: left;
+}
+ .textright {
+     text-align: right;
+}
+ .textcenter {
+     text-align: center;
+}
+ .textul {
+     text-decoration: underline;
+}
+ .textitalic {
+     font-style: italic;
+}
+ .textbold {
+     font-weight: bold;
+}
+ .textupper {
+     text-transform: uppercase;
+}
+ .cellw100 {
+     width: 100%;
+}
+ .cellw1 {
+     width: 1%;
+}
+ .imgleft {
+     display: block;
+     text-align: left;
+}
+ .imgright {
+     display: block;
+     text-align: right;
+}
+ .imgcenter {
+     display: block;
+     text-align: center;
+}
+ .lpad0 {
+     padding-left: 0;
+}
+ .rpad0 {
+     padding-right: 0;
+}
+ .nowrap {
+     white-space: nowrap;
+}
+/* loading animation (displayed if the request takes more than 2 seconds), div */
+ .loadingAnimation {
+     margin: auto;
+     margin-top: 12px;
+     border: 2px solid transparent;
+     border-radius: 50%;
+     border-top: 2px solid #227BBE;
+     border-right: 2px solid #227BBE;
+     width: 12px;
+     height: 12px;
+     -webkit-animation: spin 1.5s linear infinite;
+     animation: spin 1.5s linear infinite;
+}
+ @-webkit-keyframes spin {
+     0% {
+         -webkit-transform: rotate(0deg);
+    }
+     100% {
+         -webkit-transform: rotate(360deg);
+    }
+}
+ @keyframes spin {
+     0% {
+         transform: rotate(0deg);
+    }
+     100% {
+         transform: rotate(360deg);
+    }
+}
+ #cookieInfo {
+     padding: 2px 10px 6px 10px;
+     background: white;
+     font-size: 16px;
+     border: 1px solid #ddd;
+}
+ #cookieFrameInfo {
+     padding: 2px 10px 6px 10px;
+     background: white;
+     font-size: 14px;
+     border: 1px solid #ddd;
+}
+ #cookieInfo .cookieInfoHeader {
+     font-size: 14px;
+     font-weight: bold;
+}
+ #cookieFrameInfo .cookieInfoHeader {
+     font-size: 14px;
+     font-weight: bold;
+}
+
+/* Question content (excluding navigation) */
+ .contentContainer {
+	 width: 90%;
+     padding: 16px;
+}
+/* Language content*/
+ .languagePanel {
+     padding: 16px;
+}
+/* Test label */
+ #rsPanelComments {
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+ #rsPanelComments .msgBar {
+     margin: auto;
+     position: fixed;
+     top: 6px;
+     background: #fff7e1;
+     border: 1px solid #e7d7b0;
+     color: #837542;
+     font-size: 14px;
+     padding: 8px 12px;
+}
+/* Logo 1 */
+ .logo1Container {
+     width: 100%;
+     display: flex;
+     padding-top: 8px;
+     padding-bottom: 20px;
+     justify-content: var(--main_logo_alignment);
+}
+ .logo1 {
+     height: 28px;
+}
+/* Link (powered by) */
+ .logo2link {
+     color: inherit;
+     text-decoration: none;
+}
+ .logo2link:link {
+     color: inherit;
+}
+ .logo2link:visited {
+     color: inherit;
+}
+ .logo2link:hover {
+     color: inherit;
+     text-decoration: underline;
+}
+ .logo2link:active {
+     color: inherit;
+     text-decoration: none;
+}
+
+/* Main container for question and navigation buttons */
+ .mainContainer {
+     background-color: var(--page_content_background_color);
+     font-size: var(--main_font_size);
+     font-weight: var(--main_font_weight);
+     margin: 14px auto 8px;
+     border-radius: 12px;
+}
+
+
+/* Large screens */
+ @media only screen and (min-width: 901px) {
+    /* Main container for question and navigation buttons */
+     .mainContainer {
+         min-width: 960px;
+		 width: calc(50vw);
+         left: calc( (100vw - 901px) / 2);
+         margin: 100px auto 16px;
+    }
+    /* Question content (excluding navigation) */
+     .contentContainer {
+         padding: 56px 48px 24px;
+    }
+    /* Language content*/
+     .languagePanel {
+         padding: 24px 56px;
+    }
+    /* Logo */
+     .logo1Container {
+         position: absolute;
+         top: 32px;
+         left: 0;
+         right: 0;
+         padding: 0 24px;
+         width: calc(100% - 48px);
+         display: flex;
+    }
+     .logo1 {
+         height: 36px;
+    }
+     .buttonContainer {
+         padding: 0 48px 48px 48px !important;
+    }
+}
+
+
+
+ .languageLink {
+     margin-right: 8px;
+     color: var(--main_font_color);
+}
+/* Safari iOS settings in order to fix scrolling, all the way to the bottom, in mainContainer */
+ @supports (-webkit-touch-callout: none) {
+    /* CSS specific to iOS devices */
+     .mainContainer {
+         height: -webkit-fill-available;
+    }
+}
+/* We don|t display the logo2 nin this CSS */
+ .logo2Container {
+     display: none;
+}
+/* Progressbar */
+ .progressContainer {
+     display: inline-block;
+     width: 100%;
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 1;
+}
+/* Progressbar - background */
+ .progressBarContainer {
+     width: 100%;
+     background-color: var(--progressbar_background_color);
+     height: 6px;
+     margin: 0;
+}
+/* Progressbar - foreground */
+ .progressBar {
+     background-color: var(--progressbar_foreground_color);
+     height: 6px;
+}
+/* Progressbar - text */
+ .progressBarText {
+     display: none;
+}
+/* Navigation buttons */
+ #rsPanelButtons {
+     width: 100%;
+}
+ .buttonContainer {
+     display: flex;
+     padding: 16px;
+     margin-top: 0;
+     margin-bottom: 0;
+}
+ .buttonNext, .buttonPrevious {
+     background-color: var(--button_background_color);
+     border-color: var(--button_border_color);
+     color: var(--button_text_color);
+     border-radius: var(--button_border_radius);
+     border-width: var(--button_border-width);
+     min-width: var(--button_min_width);
+     height: var(--button_height);
+     font-size: var(--button_font_size);
+     font-family: var(--main_font_family);
+     border-style: solid;
+     text-align: center;
+     cursor: pointer;
+     font-weight: bold;
+     line-height: 18px;
+     padding-left: 12px;
+     padding-right: 12px;
+}
+ .buttonNext {
+     float: right;
+}
+ .buttonPrevious {
+     float: left;
+}
+/* Numeric and duration sub-questions */
+.cTable.rsNumeric .cCellF, .cTable.rsDuration .cCellF {
+     text-align: right;
+}
+/* Due to DC css width on numeric/duration */
+ .cCellRowTextF, .cCellRowTextH {
+     width: unset;
+}
+ .cCellRowTextF.cellw1, .cCellRowTextH.cellw1 {
+     width: 10%;
+}
+.cCellRowText.cCellRowTextF{
+	width: 15%;
+}
+
+/* Numeric and duration input fields */
+ .cFInput, .cHInput {
+     text-align: center;
+     /* To avoid zoom on iPhones and iPads */
+     font-size: 16px;
+     font-weight: normal;
+     height: 30px;
+     border: 1px solid var(--input_field_border_color);
+     border-radius: 6px;
+     margin-right: 10px;
+     width: 9em;
+}
+/* Question text style */
+ .cQuestionText {
+     font-size: var(--question_font_size);
+     font-weight: var(--question_font_weight);
+}
+/* Minute field of durartion */
+ .rsRow .cHInput:last-of-type {
+     width: 2em;
+     margin-left: 10px;
+}
+/* Make numeric/duration rows to fill enitre row */
+ .cTable.rsNumeric .rsRow, .cTable.rsDuration .rsRow {
+     justify-content: space-between;
+}
+/* Open text fields */
+ .cTextInput, .cTextArea, .rsRow select {
+	 /* To avoid zoom on iPhones and iPads */
+     font-size: var(--main_font_size);
+     font-weight: normal;
+     border: 1px solid var(--input_field_border_color);
+     border-radius: 6px;
+     padding: 8px;
+     margin: 0;
+}
+ .rsRow select {
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     background: transparent;
+     background-color: #FFFFFF;
+     background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+     background-repeat: no-repeat;
+     background-position-x: calc(100% - 4px);
+     background-position-y: 6px;
+     cursor: pointer;
+}
+/* Select in single grid question */
+ .rsSingleGrid .rsRow select {
+     max-width: 100%;
+}
+/* Width of single and multi */
+ .cTable.rsSingle, .cTable.rsMulti {
+     width: 100%;
+}
+/* Width ofmulti subq question */
+table[class=cTable] {
+     width: 100%;
+}
+/* Select in single question */
+ .cTable.rsSingle .rsRow .cRowBlockText {
+	width: 100%;
+	padding: 12px 0;
+	font-size: var(--main_font_size);
+	font-family: var(--main_font_family);
+	color: var(--main_text_color);
+
+}
+ .cTable.rsSingle .rsRow select {
+     width: 100%;
+}
+/* Select general */
+ .rsRow select option {
+     background: var(--page_background_color);
+}
+/* Order of error "*" on single and multi */
+ .cTable.rsSingle .cError, .cTable.rsMulti .cError {
+     order: -1;
+     left: -16px;
+     width: 0;
+     position: relative;
+}
+ .cTable.rsSingleGrid .rsRow .cCellRowText .cError, .cTable.rsMultiGrid .rsRow .cCellRowText .cError {
+     order: -1;
+     left: -16px;
+     width: 0;
+     position: relative;
+}
+ .cCellSubQuestion {
+     text-align: left;
+     padding: 0 0 24px;
+     border: none;
+}
+ .cCellF {
+     display: flex;
+     align-items: center;
+}
+ .cCellF .cError {
+     order: -1;
+     padding-right: 4px;
+}
+ .cCellF.cCellLastValue {
+     padding: 16px;
+}
+/* Question number, span */
+ .cQuestionNumber {
+     display: none;
+}
+/* Focus outline */
+ .cFInput:focus, .cHInput:focus, .cTextInput:focus, .cTextArea:focus, .buttonNext:focus, .buttonPrevious:focus .rsRow select:focus {
+     outline: 0;
+}
+/* Grid questions, trying flex layout, but can be "tricky" when many columns */
+ .cTable.rsSingleGrid, .cTable.rsMultiGrid, .cTable.rsNumeric, .cTable.rsDuration {
+     width: 100%;
+}
+ .cTable.rsSingleGrid .cCellRowText, .cTable.rsMultiGrid .cCellRowText {
+     text-align: left;
+}
+/* Header in grids */
+ .rsSingleGrid .cCellHeader, .rsMultiGrid .cCellHeader, .cCellHeader {
+     white-space: normal;
+	 width: 15%;
+     font-weight: var(--main_font_weight);
+     font-size: var(--main_font_size);
+}
+/* Must add a transparent border to header row, in ordeer to make flex layout even columns */
+ .cTable.rsSingleGrid tr:not(.rsRow):nth-of-type(2), .cTable.rsMultiGrid tr:not(.rsRow):nth-of-type(2) {
+     border: 1px solid transparent;
+     padding: 16px 0;
+}
+ .cTable.rsSingleGrid tr:not(:first-child), .cTable.rsMultiGrid tr:not(:first-child) {
+     display: flex;
+}
+/* Must be same as cCellRowText in order to take up same space when using flex layout */
+ .cTable.rsSingleGrid .cCellFirstHeader, .cTable.rsMultiGrid .cCellFirstHeader {
+     flex-grow: 1;
+     flex-basis: 50%;
+     padding: 16px;
+}
+ .cTable.rsSingleGrid .cCellHeader:not(.cCellFirstHeader), .cTable.rsMultiGrid .cCellHeader:not(.cCellFirstHeader) {
+     flex-grow: 1;
+     flex-basis: 10%;
+     padding: 0 8px;
+}
+ .cTable.rsSingleGrid .rsRow .cCellRowText, .cTable.rsMultiGrid .rsRow .cCellRowText {
+     display: flex;
+     flex-grow: 1;
+     flex-basis: 50%;
+}
+ .cTable.rsSingleGrid .rsRow .cCell, .cTable.rsMultiGrid .rsRow .cCell {
+     display: flex;
+     flex-grow: 1;
+     flex-basis: 10%;
+     padding: 0 8px;
+     justify-content: center;
+	 align-items: center;
+}
+/* Inline 'Say', span */
+ .cSayInline {
+     display: inline;
+}
+/* Row codes, span */
+ .cValue {
+     display: none;
+    /* hidden */
+     font-size: xx-small;
+}
+/*We need to match the padding of the input cell with the padding of the answer rows cell*/
+.cCell {
+    padding: 16px;
+}
+/* Flex layout on rows only if single subq */
+ .cTable.rsSingle .rsRow, .cTable.rsMulti .rsRow, .cTable.rsGridSingle .rsRow, .cTable.rsGridMulti .rsRow, .cTable.rsNumeric .rsRow, .cTable.rsDuration .rsRow   {
+     display: flex;
+     border: 1px solid;
+     border-color: var(--question_row_border_color);
+     border-radius: 8px;
+     align-items: center;
+     flex-wrap: nowrap;
+     margin-bottom: 8px;
+     cursor: pointer;
+     padding: 0 16px;
+}
+/* To make radio/check box  cells clickable and not only the control the celles need to strech thee whole height of the row */
+.cTable.rsSingleGrid .rsRow, .cTable.rsMultiGrid .rsRow {
+     align-items: stretch;
+}
+ .rsRow:hover {
+     background: #F0F4F6;
+}
+
+ .rsRow.cRowAltSelected:hover, .rsRow.cRowSelected:hover {
+     background: var(--question_selected_background_color);
+}
+
+
+/* Background when row has "selected" class */
+/*
+ .rsRow.cRowSelected, .rsRow.cRowAltSelected {
+     background-color: var(--question_selected_background_color);
+     border-color: var(--question_selected_background_color);
+}
+*/
+ .rs-ht {
+     margin-top: 0;
+     margin-bottom: 0;
+}
+/* Is this * selector needed? */
+ .rs-ht * {
+     margin-top: 0;
+     margin-bottom: 0;
+}
+/* Turn off spinners */
+ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     margin: 0;
+}
+/* Radio button and check boxes, many settings to try to implement "pretty" look, but retain WCAG (Unveirsal Access) with keyboard navigation etc, and also support varous browsers and devices */
+ .cRadio {
+     outline: 0;
+    /* Maybe we should change this to indicate focus */
+     accent-color: transparent;
+     color: #FFFFFF;
+     position: relative;
+     margin: 0;
+     width: var(--input_radio_checkbox_size);
+     height: var(--input_radio_checkbox_size);
+     background-color: #FFFFFF;
+     border-radius: 50%;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     cursor: pointer;
+}
+ .cRadio:before {
+     content: "";
+     visibility: visible;
+     position: absolute;
+     border: 2px solid var(--input_main_color);
+     border-radius: 50%;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+}
+ .cRadio:checked:before {
+     background-clip: content-box;
+     padding: 3px;
+     background-color: var(--input_main_color);
+}
+ .cCheck {
+     outline: 0;
+    /* Maybe we should change this to indicate focus */
+     accent-color: transparent;
+     color: #FFFFFF;
+     position: relative;
+     margin: 0;
+     width: var(--input_radio_checkbox_size);
+     height: var(--input_radio_checkbox_size);
+     background-color: #FFFFFF;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     cursor: pointer;
+}
+ .cCheck:checked {
+     background-color: var(--input_main_color);
+}
+ .cCheck:before {
+     content: "";
+     visibility: visible;
+     position: absolute;
+     border: 2px solid var(--input_main_color);
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+}
+ .cCheck:checked:before {
+     content: '\2714';
+     font-weight: 800;
+     line-height: 1.2;
+     font-size: calc((var(--input_check_size) * 0.8) - 2px);
+     text-align: center;
+     color: #FFFFFF;
+}
+/* Variable target */
+ .cRow,.cRowSelected {
+     background-color: var(--question_row_background_color);
+}
+ .cRowAlt,.cRowAltSelected {
+     background-color: var(--question_row_alt_background_color);
+}
+/* General text settings */
+/* Give a linspace with empty paragraphs */
+ p:empty {
+     margin-top: 1em;
+}
+/* General row text (also text on open) */
+ .cCellRowText, .rsRowOpen .cCell:nth-of-type(2) {
+     font-size: var(--main_font_size);
+     padding: 16px;
+     font-weight: var(--main_font_weight);
+}
+/* Force left inside rsSingle table */
+ .cTable.rsSingleGrid .rsRow, .cTable.rsMultiGrid .rsRow, .cTable.rsNumeric .rsRow, .cTable.rsDuration .rsRow {
+     padding: 0;
+}
+/* Interactive buttons variables */
+ .rsBtn, .cMultiBtn {
+     font-size: var(--interactive_font_size);
+     font-weight: var(--interactive_font_weight);
+     border: var(--interactive_border);
+     border-radius: var(--interactive_border_radius);
+     margin: var(--interactive_margin);
+     padding: var(--interactive_padding);
+     text-align: var(--interactive_text_align);
+     vertical-align: var(--interactive_vertical_align);
+     color: var(--interactive_text_color);
+     background-color: var(--interactive_background_color);
+	 box-shadow: 0px 0px 1px 0px;
+}
+
+ .rsBtn:hover, .cMultiBtn:hover {
+     border: var(--interactive_border_hover);
+     background-color: var(--interactive_background_color_hover);
+	 box-shadow: 0px 0px 5px 0px;
+}
+ .rsBtn:active, .cMultiBtn:active {
+     border: var(--interactive_border_hover);
+     background-color: var(--interactive_background_color_hover);
+	     box-shadow: -1px -1px 3px 0px;
+}
+/* Interactive buttons special variables */
+ .rsBtnSpecial, .btnSpecial{
+     border: var(--special_border);
+     color: var(--special_text_color);
+     background-color: var(--special_background_color);
+}
+ .rsBtnChecked, .btnChecked {
+     background-color: var(--interactive_checked_background_color);
+}
+#UpdatePanel1 {
+	padding-top:10px
+}
+#UpdatePanel2 {
+	/*height: 60px;
+	padding: 10px;*/
+	display: flex;
+	justify-content: space-between;
+}		
+.cQuestionNumber {
+    display: none;
+    align-items: flex-end;
+    font-size: 20px;
+    font-weight: bold;
+	padding-bottom: 20px;
+}
+/*
+.cRowSelected:hover, .cRowAltSelected:hover {
+     background-color: var(--interactive_selected_background_color_hover);
+}
+.cRow:hover, .cRowAlt:hover {
+     background-color: var(--interactive_selected_background_color_hover);
+}
+
+tr.cRowSelected:hover, tr.cRowAltSelected:hover, tr.cRow:hover, tr.cRowAlt:hover{
+     background-color: var(--interactive_selected_background_color_hover);
+}
+*/
+
+.cTABLEContainQues{
+    width: 98%;
+}
+
+
+
+
+.cRowSelected:has(.textleft:hover), .cRowAltSelected:has(.textleft:hover), .cRow:has(.textleft:hover), .cRowAlt:has(.textleft:hover) {
+     background-color: var(--interactive_selected_background_color_hover);
+}
+
+
+.cRowSelected:has(.cCell:hover), .cRowAltSelected:has(.cCell:hover), .cRow:has(.cCell:hover), .cRowAlt:has(.cCell:hover) {
+     background-color: var(--interactive_selected_background_color_hover);
+}
+.cRowSelected:has(.cCellRowText:hover), .cRowAltSelected:has(.cCellRowText:hover), .cRow:has(.cCellRowText:hover), .cRowAlt:has(.cCellRowText:hover) {
+     background-color: var(--interactive_selected_background_color_hover);
+}
+
+
+
+
+.cGridButtonWrapper{
+    min-width: 50% !important;
+    height: 150px !important;
+    border-radius: 20px !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-shadow: 0px 0px 13px 0px !important;
+    margin: auto !important;
+}
+.cBtnMultiGrid, .cBtnSingleGrid{
+	box-shadow: 1px 1px 2px 1px !important;
+}
+
+.cUndo, .cReset {
+    box-shadow: 1px 1px 1px 1px;
+    border-radius: 4px 4px 4px 4px;
+}
+.cUndo:hover, .cReset:hover {
+    box-shadow: 1px 1px 3px 1px;
+    border-radius: 4px 4px 4px 4px;
+}
+.cUndo:active, .cReset:active {
+    box-shadow: -1px -1px 2px 1px;
+    border-radius: 4px 4px 4px 4px;
+}
+
+.cSrtItem.cDragGroup.ui-draggable:hover {
+    box-shadow: 1px 1px 3px 1px;
+}
+
+.cSrtItem.cDragGroup.ui-draggable:active {
+    box-shadow: -1px -1px 3px 1px;
+}
+table{
+	font-size: var(--question_font_size);;
+	/* As this comes from min.css, we comment it, but you can change if needed to overwrite
+	font-family:'Open Sans',arial,sans-serif;
+	width:100%;
+	overflow:visible
+	*/
+}
+.cBtnTable{
+	width: 80%;
+}
+
+.cSrtBucket.ui-droppable:target{
+	box-shadow: 4px 4px 4px 4px !important;
+}
+.cSelPara{
+	padding: 10px 10px 10px 10px;
+	margin-top: 20px;
+	background-color: rgb(238, 236, 225);
+	border: 2px solid rgb(184 223 228);
+	font-size: var(--main_font_size);
+	text-align: left;
+	width: 75%;
+	font-family: var(--main_font_family);
+}
+
+
+
+
+
+/* Small screens */
+ @media only screen and (orientation : portrait) and (max-width: 901px) {
+    /* Main container for question and navigation buttons */
+     .mainContainer {
+         min-width: fit-content;
+		 width: calc(95vw);
+         left: calc((100vw / 100));
+         margin: 100px auto 16px;
+		 background-color: red;
+    }
+    /* Question content (excluding navigation) */
+     .contentContainer {
+         /*padding: 56px 48px 24px;*/
+		 padding: 0px 0px 0px 5vw;
+    }
+    /* Language content*/
+     .languagePanel {
+         padding: 24px 56px;
+    }
+    /* Logo */
+     .logo1Container {
+         position: absolute;
+         top: 32px;
+         left: 0;
+         right: 0;
+         padding: 0 24px;
+         width: calc(100% - 48px);
+         display: flex;
+    }
+     .logo1 {
+         height: 36px;
+    }
+     .buttonContainer {
+        padding: 0 48px 48px 48px !important;
+		width: 80vw;
+    }
+	.cBtnTable{
+		width: 50% !important;
+	}
+	.cSingleBtn{
+		float: left;
+	}
+	.cSelPara{
+		padding: 10px 10px 10px 10px !important;
+		border: 2px solid rgb(184 223 228);
+		font-size: var(--main_font_size) !important;
+		width: 69vw;
+		font-family: var(--main_font_family);
+	}
+	.cBtnMultiGrid:has(tr), .cBtnSingleGrid:has(tr){
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: space-between;
+		align-items: stretch;
+	}
+	.cBtnTable tbody tr:has(.cBtnSingleGrid, .cBtnMultiGrid){
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: space-between;
+		align-items: stretch;
+	}
+	.cBtnMultiGrid, .cBtnSingleGrid{
+		min-height: 50px !important;
+		min-width: 75vw !important;
+		margin-bottom: 2px;
+		margin-top: 2px;
+	}
+
+}
